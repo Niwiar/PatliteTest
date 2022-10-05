@@ -1,0 +1,42 @@
+
+
+GF YF RF SLOW FAST G Y R
+
+
+x = 0 to 7
+x0,x8 : 0--- -000 NO LIGHT
+x1,x9 : 0--- -001 R
+x2,xA : 0--- -010 Y
+x3,xB : 0--- -011 Y R
+x4,xC : 0--- -100 G
+x5,xD : 0--- -101 G R
+x6,xE : 0--- -110 G Y
+x7,xF : 0--- -111 G Y R
+
+y = 1,3,5,7
+x8 - xF : 0--- 1--- FAST BUZZER
+y0 - y7 : 0--1 0--- SLOW BUZZER
+
+FLASH
+20,28,30,38 : 001- ---0 RF
+40,48,50,58 : 010- --0- YF
+60,68,70,78 : 011- --00 YF RF
+
+GREEN FLASH
+x = any
+8x - Bx : 10-- ---- GF Y Muted
+Cx - Fx : 11-- ---- GF Y R Muted
+
+
+GF YF RF SLOW  FAST G Y R
+0  0  0  0        0 0 0 0
+
+0 OFF
+1 R
+2 Y
+3 R Y
+4 G
+5 G R
+6 G Y
+7 G Y R
+8 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5"/>
+    <meta name="author" content="AdminKit" />
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web"/>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+    <title>Dashboard</title>
+
+    <!-- <link href="css/app.css" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css"/>
+
+    <link rel="stylesheet" href="/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="/fonts/fontawesome5-overrides.min.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/light.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <%- include('./partials/sidebar'); %>
+
+      <div class="main">
+        <%- include('./partials/navbar'); %>
+
+        <main class="content">
+          <div class="container-fluid p-0">
+            <div class="row">
+              <div class="col-12 d-flex">
+                <div class="card flex-fill">
+                  <div class="card-header title">
+                    <h1>Patlite Status : <span id="paliteStatus"></span></h1>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-center">
+                      <div class="col-3 d-flex justify-content-center">
+                        <div id="PatliteRed" class="light rounded-circle red off"></div>
+                      </div>
+                      <div class="col-3 d-flex justify-content-center">
+                        <div id="PatliteYellow" class="light rounded-circle yellow off"></div>
+                      </div>
+                      <div class="col-3 d-flex justify-content-center">
+                        <div id="PatliteGreen" class="light rounded-circle green off"></div>
+                      </div>
+                      <div class="col-3 d-flex justify-content-center">
+                        <div id="PatliteBuzzer" class="sound rounded-circle blue off"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <form id="formSetLight" action="/set_light"></form>
+                <div class="col-12 d-flex">
+                  <div class="card flex-fill">
+                    <div class="card-header title">
+                      <h1>Set Patlite</h1>
+                    </div>
+                    <div class="card-body">
+                      <div id="PatliteError"></div>
+                      <div class="form-row my-2">
+                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center"></div>
+                        <div class="col-xl-6 d-xl-flex align-items-xl-center">
+                          <select class="form-select" id="PatliteDropdown">
+                            <option value="0" selected="">Please select Patlite</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-row my-2">
+                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center">
+                          <span>Light:</span>
+                        </div>
+                        <div class="col-xl-6 d-xl-flex align-items-xl-center">
+                          <select class="form-select" id="LightDropdown">
+                            <option value="000" selected="">No Light</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-row my-2">
+                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center">
+                          <span>Buzzer:</span>
+                        </div>
+                        <div class="col-xl-6 d-xl-flex align-items-xl-center">
+                          <select class="form-select" id="BuzzerDropdown">
+                            <option value="00" selected="">No Buzzer</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-row my-2">
+                        <div class="col-xl-4 d-xl-flex justify-content-xl-end align-items-xl-center">
+                          <span>Flash:</span>
+                        </div>
+                        <div class="col-xl-6 d-xl-flex align-items-xl-center">
+                          <select class="form-select" id="FlashDropdown">
+                            <option value="000" selected="">No Flash</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xl-2 d-xl-flex align-items-xl-center">
+                        <button type="button" class="btn btn-success" id="setLight">SET</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14/dist/sweetalert2.all.min.js"></script>
+    <script src="/js/socket.io.min.js"></script>
+    <script src="/dashboard.js"></script>
+    <script src="/code/code.js"></script>
+    <script src="/code/dropdown.js"></script>
+  </body>
+</html>
